@@ -192,7 +192,7 @@ states/Start/position = Vector2(247, 84)
 transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_mtuoh"), "Grounded", "Air", SubResource("AnimationNodeStateMachineTransition_htcer"), "Air", "Grounded", SubResource("AnimationNodeStateMachineTransition_74mp2")]
 graph_offset = Vector2(-35, -50)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 0
 script = ExtResource("1_a3d8c")
 
