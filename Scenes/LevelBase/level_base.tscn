@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bvp8oeoe5ttf7"]
+[gd_scene load_steps=6 format=4 uid="uid://bvp8oeoe5ttf7"]
 
 [ext_resource type="Texture2D" uid="uid://ckhnxrttfchng" path="res://assets/tiles/Terrain (16x16).png" id="1_fe7a1"]
 [ext_resource type="PackedScene" uid="uid://c1b487boacsoc" path="res://Scenes/Player/player.tscn" id="2_1l5ts"]
+[ext_resource type="PackedScene" uid="uid://du8caubalvmou" path="res://Scenes/Enemies/Snail/snail.tscn" id="3_2wk6i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l5ts"]
 resource_name = "Platforms"
@@ -251,3 +252,6 @@ tile_set = SubResource("TileSet_ur0vv")
 
 [node name="Player" parent="." instance=ExtResource("2_1l5ts")]
 position = Vector2(44, -130)
+
+[node name="Snail" parent="." instance=ExtResource("3_2wk6i")]
+position = Vector2(98, -217)
