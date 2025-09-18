@@ -7,10 +7,14 @@ class_name Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var debug_label: Label = $DebugLabel
 
-const GRAVITY: float = 690.0
-const JUMP_SPEED: float = -270.0
-const RUN_SPEED: float = 120.0
+#const GRAVITY: float = 690.0
+#const JUMP_SPEED: float = -270.0
+const RUN_SPEED: float = 200.0
 const MAX_FALL: float = 350.0
+
+const GRAVITY: float = 2000.0  # increased
+const JUMP_SPEED: float = -540.0  # increased
+
 
 
 func _ready() -> void:
