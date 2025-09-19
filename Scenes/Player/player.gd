@@ -9,7 +9,7 @@ class_name Player
 
 #const GRAVITY: float = 690.0
 #const JUMP_SPEED: float = -270.0
-const RUN_SPEED: float = 200.0
+const RUN_SPEED: float = 150.0
 const MAX_FALL: float = 350.0
 
 const GRAVITY: float = 2000.0  # increased
