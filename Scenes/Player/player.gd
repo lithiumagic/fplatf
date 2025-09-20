@@ -30,6 +30,10 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_SPEED
+	
+	# wall jump
+	if is_on_wall() and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_SPEED
 
 	velocity.x = RUN_SPEED * Input.get_axis("left", "right")
 	if not is_equal_approx(velocity.x, 0.0):

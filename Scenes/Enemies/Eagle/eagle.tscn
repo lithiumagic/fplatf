@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://gyv7gq2tn8gf"]
+
+[ext_resource type="PackedScene" uid="uid://1c00stl10nqb" path="res://Scenes/Enemies/enemy_base.tscn" id="1_jesq6"]
+[ext_resource type="Script" uid="uid://bvqee83cs4ki8" path="res://eagle.gd" id="2_laodr"]
+[ext_resource type="Texture2D" uid="uid://23g8anpxjh3d" path="res://assets/enemies/eagle/eagle-attack.png" id="3_laodr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnjor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26eia"]
+atlas = ExtResource("3_laodr")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uhx3"]
+atlas = ExtResource("3_laodr")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbq4f"]
+atlas = ExtResource("3_laodr")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4oeh"]
+atlas = ExtResource("3_laodr")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xq53t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26eia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uhx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbq4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4oeh")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_laodr"]
+radius = 13.0
+
+[node name="Eagle" instance=ExtResource("1_jesq6")]
+collision_mask = 0
+script = ExtResource("2_laodr")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_vnjor")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_xq53t")
+animation = &"fly"
+frame_progress = 0.170544
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_laodr")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-1, 2)
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+target_position = Vector2(0, 400)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false

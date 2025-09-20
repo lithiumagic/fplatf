@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1b487boacsoc"]
+[gd_scene load_steps=29 format=3 uid="uid://c1b487boacsoc"]
 
 [ext_resource type="Script" uid="uid://ddokuxppudfhy" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cut5xwiekelf5" path="res://assets/player/player.png" id="1_uvnfx"]
@@ -192,6 +192,9 @@ states/Start/position = Vector2(247, 84)
 transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_mtuoh"), "Grounded", "Air", SubResource("AnimationNodeStateMachineTransition_htcer"), "Air", "Grounded", SubResource("AnimationNodeStateMachineTransition_74mp2")]
 graph_offset = Vector2(-35, -50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpcdj"]
+size = Vector2(12, 15)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 0
 script = ExtResource("1_a3d8c")
@@ -228,3 +231,11 @@ theme_override_font_sizes/font_size = 72
 text = "oooo
 ooo
 oooo"
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_xpcdj")
