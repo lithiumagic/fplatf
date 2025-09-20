@@ -24,12 +24,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play('idle')
 
 
-func flip_me() -> void:
-	if _player_ref.global_position.x > global_position.x: # if seen player.
-		animated_sprite_2d.flip_h = true
-	else:
-		animated_sprite_2d.flip_h = false
-
 
 func apply_jump() -> void:
 	if is_on_floor() == false or _can_jump == false:

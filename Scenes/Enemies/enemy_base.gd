@@ -24,6 +24,14 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 
+func flip_me() -> void:
+	if _player_ref.global_position.x > global_position.x: # if seen player.
+		animated_sprite_2d.flip_h = true
+	else:
+		animated_sprite_2d.flip_h = false
+
+
+
 func die() -> void:
 	set_physics_process(false)
 	queue_free()
