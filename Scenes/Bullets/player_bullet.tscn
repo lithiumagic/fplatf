@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://emp6rm4uaw1q" path="res://assets/items/bullet1.png" id="2_ljjqt"]
 
 [node name="PlayerBullet" instance=ExtResource("1_c845f")]
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = ExtResource("2_h8ykn")
