@@ -15,6 +15,10 @@ run/main_scene="uid://bvp8oeoe5ttf7"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://dkaqonu05hpfm"
 
+[autoload]
+
+SignalHub="*res://Globals/SignalHub.gd"
+
 [display]
 
 window/size/viewport_width=1024

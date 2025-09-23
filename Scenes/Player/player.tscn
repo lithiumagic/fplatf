@@ -242,3 +242,4 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_xpcdj")
 
 [node name="Shooter" parent="." instance=ExtResource("4_mtuoh")]
+speed = 250.0

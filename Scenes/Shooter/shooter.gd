@@ -20,7 +20,7 @@ func shoot(direction: Vector2) -> void:
 	if not _can_shoot:
 		return
 	_can_shoot = false
-	print('BOOM!', direction)
+	SignalHub.emit_on_create_bullet(global_position, direction, speed, bullet_key)
 	shoot_timer.start()
 
 
