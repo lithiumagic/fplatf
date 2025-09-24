@@ -8,10 +8,12 @@ const OBJECT_SCENES: Dictionary[Constants.ObjectType, PackedScene] = {
 
 
 func _enter_tree() -> void:
-	SignalHub.on_create_bullet.connect(on_create_bullet)
+	# Connect to global signal that requests bullet creation.
+	# This function will respond to all emitted bullet requests.
+	SignalHub.bullet_spawn_requested.connect(_on_bullet_requested)
 
 
-func on_create_bullet(
+func _on_bullet_requested(
 	pos: Vector2, dir: Vector2, speed: float, ob_type: Constants.ObjectType) -> void:
 	if OBJECT_SCENES.has(ob_type) == false:
 		print('NO SUCH OBJECT!')
