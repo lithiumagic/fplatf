@@ -33,9 +33,10 @@ func flip_me() -> void:
 
 
 func die() -> void:
+	print("Spawning explosion at: ", global_position)
+	SignalHub.emit_object_requested(global_position, Constants.ObjectType.EXPLOSION)
 	set_physics_process(false)
 	queue_free()
-	
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
@@ -43,4 +44,5 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
+	die()
 	queue_free()
