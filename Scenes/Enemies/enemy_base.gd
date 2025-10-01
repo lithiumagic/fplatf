@@ -35,6 +35,7 @@ func flip_me() -> void:
 func die() -> void:
 	print("Spawning explosion at: ", global_position)
 	SignalHub.emit_object_requested(global_position, Constants.ObjectType.EXPLOSION)
+	SignalHub.emit_object_requested(global_position, Constants.ObjectType.PICKUP)
 	set_physics_process(false)
 	queue_free()
 

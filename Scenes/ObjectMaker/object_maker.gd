@@ -4,7 +4,8 @@ extends Node2D
 const OBJECT_SCENES: Dictionary[Constants.ObjectType, PackedScene] = {
 	Constants.ObjectType.BULLET_PLAYER: preload("res://Scenes/Bullets/player_bullet.tscn"),
 	Constants.ObjectType.BULLET_ENEMY: preload("res://Scenes/Bullets/enemy_bullet.tscn"),
-	Constants.ObjectType.EXPLOSION: preload("res://Scenes/Explosion/explosion.tscn")
+	Constants.ObjectType.EXPLOSION: preload("res://Scenes/Explosion/explosion.tscn"),
+	Constants.ObjectType.PICKUP: preload("res://Scenes/fruit_pickup/fruit_pickup.tscn")
 }
 
 
@@ -24,6 +25,7 @@ func _on_bullet_requested(
 	var new_bullet: Bullet = OBJECT_SCENES[ob_type].instantiate()  # where did type Bullet come from?
 	new_bullet.setup(pos, dir, speed)
 	call_deferred("add_child", new_bullet)
+
 
 func _on_object_requested(pos: Vector2, ob_type: Constants.ObjectType) -> void:
 	if OBJECT_SCENES.has(ob_type) == false:
