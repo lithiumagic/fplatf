@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1b487boacsoc"]
+[gd_scene load_steps=31 format=3 uid="uid://c1b487boacsoc"]
 
 [ext_resource type="Script" uid="uid://ddokuxppudfhy" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cut5xwiekelf5" path="res://assets/player/player.png" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://nlq75gofggjl" path="res://Scenes/PlayerCam/player_cam.tscn" id="3_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://bm4qpdkxmu7kd" path="res://Scenes/Shooter/shooter.tscn" id="4_mtuoh"]
+[ext_resource type="AudioStream" uid="uid://coc1x3brsiqgb" path="res://assets/sound/jump.wav" id="5_htcer"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]
 radius = 6.0
@@ -243,3 +244,8 @@ shape = SubResource("RectangleShape2D_xpcdj")
 
 [node name="Shooter" parent="." instance=ExtResource("4_mtuoh")]
 speed = 250.0
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_htcer")
+volume_db = -21.072
+pitch_scale = 0.84

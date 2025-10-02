@@ -22,6 +22,7 @@ func shoot(direction: Vector2) -> void:
 	_can_shoot = false
 	SignalHub.emit_bullet_spawn_requested(global_position, direction, speed, bullet_key)
 	shoot_timer.start()
+	sound.play()
 
 
 func _on_shoot_timer_timeout() -> void:

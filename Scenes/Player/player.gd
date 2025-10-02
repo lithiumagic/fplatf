@@ -7,6 +7,7 @@ class_name Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var debug_label: Label = $DebugLabel
 @onready var shooter: Shooter = $Shooter
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 #const GRAVITY: float = 690.0
 #const JUMP_SPEED: float = -270.0
@@ -31,10 +32,12 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_SPEED
+		sound.play()
 	
 	# wall jump
 	if is_on_wall() and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_SPEED
+		sound.play()
 
 	# shoot
 	var shoot_dir: Vector2 = Vector2.LEFT if sprite_2d.flip_h else Vector2.RIGHT
