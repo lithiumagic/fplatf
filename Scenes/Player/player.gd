@@ -23,6 +23,7 @@ const JUMP_SPEED: float = -540.0  # increased
 const HURT_JUMP_VELOCITY: Vector2 = Vector2(0, -130.0)
 
 var is_hurt: bool = false
+var invincible: bool = false
 
 
 func _ready() -> void:
@@ -88,6 +89,19 @@ func fallen_off() -> void:
 		queue_free()
 	pass
 
+
+func go_invincible() -> void:
+	if invincible:
+		return
+	invincible = true
+	var tween: Tween = create_tween()
+	
+	for i in range(3):
+		tween.tween_property(sprite_2d, "modulate", Color("#ffffff", 0.0), 0.5)
+		tween.tween_property(sprite_2d, "modulate", Color("#ffffff", 1.0), 0.5)
+	tween.tween_property(self, "invincible", false, 0)
+		
+	
 func apply_hurt_jump() -> void:
 	is_hurt = true
 	velocity = HURT_JUMP_VELOCITY
@@ -95,6 +109,10 @@ func apply_hurt_jump() -> void:
 	hurt_timer.start()
 
 func apply_hit() -> void:
+	if invincible:
+		return
+
+	go_invincible()
 	apply_hurt_jump()
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
