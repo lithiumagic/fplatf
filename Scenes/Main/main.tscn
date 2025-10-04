@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://bngnfw53fnjmv"]
+
+[ext_resource type="Texture2D" uid="uid://dri8qv7qwdu3c" path="res://assets/backgrounds/game_background_3/game_background_3.1.png" id="1_1r6ip"]
+[ext_resource type="FontFile" uid="uid://doohj8hghvt3a" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_lixft"]
+[ext_resource type="AudioStream" uid="uid://cmfgr8avfftw4" path="res://assets/sound/Farm Frolics.ogg" id="3_qw60k"]
+[ext_resource type="PackedScene" uid="uid://duhieui7mjfsk" path="res://Scenes/HighScoreDisplay/high_score_display.tscn" id="4_5yls4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1r6ip"]
+font = ExtResource("2_lixft")
+font_size = 96
+font_color = Color(0.779966, 0.323864, 0.45372, 1)
+outline_size = 20
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.458824)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1r6ip")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00599999, 0.0900667, 0.2, 0.341176)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996953, 0.980152)
+text = "FOXY ANTICS"
+label_settings = SubResource("LabelSettings_1r6ip")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qw60k")
+volume_db = -15.438
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 12
+columns = 5
+
+[node name="HighScoreDisplay" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay2" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay3" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay4" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay5" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay6" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay7" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay8" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay9" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
+
+[node name="HighScoreDisplay10" parent="MarginContainer/GridContainer" instance=ExtResource("4_5yls4")]
+layout_mode = 2
