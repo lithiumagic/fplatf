@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1u1nc5u8awha"]
+[gd_scene load_steps=4 format=3 uid="uid://d1u1nc5u8awha"]
 
+[ext_resource type="Script" uid="uid://cpcbxgnhvmbgx" path="res://Scenes/Hud/hud.gd" id="1_r346g"]
 [ext_resource type="LabelSettings" uid="uid://w7jppf8yakfb" path="res://Resources/ScoreDisplay_48.tres" id="1_t7ji5"]
 [ext_resource type="Texture2D" uid="uid://blmtdufrd7ky3" path="res://assets/items/pixel heart 2.png" id="2_88iar"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r346g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

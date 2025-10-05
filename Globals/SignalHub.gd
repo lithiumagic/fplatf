@@ -27,6 +27,9 @@ signal bullet_spawn_requested(
 signal object_requested(pos: Vector2, ob_type: Constants.ObjectType)
 
 
+signal score_update_requested(points: int)
+
+
 # Wrapper function to emit the `on_create_bullet` signal.
 # Allows centralized control over bullet creation logic.
 func emit_bullet_spawn_requested(
@@ -38,3 +41,7 @@ func emit_bullet_spawn_requested(
 
 func emit_object_requested(pos: Vector2, ob_type: Constants.ObjectType) -> void:
 	object_requested.emit(pos, ob_type)
+
+
+func emit_score_update_requested(points: int) -> void:
+	score_update_requested.emit(points)
