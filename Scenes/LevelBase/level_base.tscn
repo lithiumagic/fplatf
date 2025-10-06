@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bvp8oeoe5ttf7"]
+[gd_scene load_steps=13 format=4 uid="uid://bvp8oeoe5ttf7"]
 
 [ext_resource type="Texture2D" uid="uid://ckhnxrttfchng" path="res://assets/tiles/Terrain (16x16).png" id="1_fe7a1"]
 [ext_resource type="Script" uid="uid://knk5f3s0bm1d" path="res://Scenes/LevelBase/level_base.gd" id="1_kkf17"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3utpbkqxnmoa" path="res://Scenes/ObjectMaker/object_maker.tscn" id="6_pyubc"]
 [ext_resource type="AudioStream" uid="uid://dh3lpi1j7h3k3" path="res://assets/sound/Flowing Rocks.ogg" id="7_g01eq"]
 [ext_resource type="PackedScene" uid="uid://d1u1nc5u8awha" path="res://Scenes/Hud/hud.tscn" id="8_xvbh0"]
+[ext_resource type="PackedScene" uid="uid://dt41613hd3kq6" path="res://Scenes/BallSpikes/ball_spikes.tscn" id="9_kaauv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l5ts"]
 resource_name = "Platforms"
@@ -248,6 +249,12 @@ terrain_set_0/terrain_0/name = "Pink Grass"
 terrain_set_0/terrain_0/color = Color(0.1672, 0.88, 0.29788, 1)
 sources/0 = SubResource("TileSetAtlasSource_1l5ts")
 
+[sub_resource type="Curve2D" id="Curve2D_xvbh0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 28, -222, 0, 0, 0, 0, 70, -295, 0, 0, 0, 0, -50, -295, 0, 0, 0, 0, 28, -222)
+}
+point_count = 4
+
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_kkf17")
 
@@ -276,3 +283,11 @@ parameters/looping = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("8_xvbh0")]
+
+[node name="BallSpikesHolder" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="BallSpikesHolder"]
+curve = SubResource("Curve2D_xvbh0")
+
+[node name="BallSpikes" parent="BallSpikesHolder/Path2D" instance=ExtResource("9_kaauv")]
+position = Vector2(28, -222)
