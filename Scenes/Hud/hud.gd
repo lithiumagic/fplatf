@@ -11,11 +11,16 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_score = GameManager.cached_score
+	_on_score_update_requested(0)
 
 
 func _enter_tree() -> void:
 	SignalHub.score_update_requested.connect(_on_score_update_requested)
+
+
+func _exit_tree() -> void:
+	GameManager.try_add_new_score(_score)
 
 
 func _on_score_update_requested(points: int) -> void:
