@@ -115,7 +115,7 @@ func apply_hit() -> void:
 	go_invincible()
 	apply_hurt_jump()
 
-func _on_hit_box_area_entered(area: Area2D) -> void:
+func _on_hit_box_area_entered(_area: Area2D) -> void:
 	call_deferred("apply_hit")
 	
 

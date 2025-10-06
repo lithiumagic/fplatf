@@ -19,7 +19,7 @@ var cached_score: int:
 		return cached_score
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_Q):
 		get_tree().quit()
 

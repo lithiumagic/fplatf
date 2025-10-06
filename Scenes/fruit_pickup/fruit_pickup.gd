@@ -16,7 +16,7 @@ func _ready() -> void:
 	animated_sprite_2d.animation = list_names.pick_random()
 	animated_sprite_2d.play()
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	hide()
 	set_deferred("monitoring", false)
 	sound.play()
