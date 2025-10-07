@@ -29,6 +29,11 @@ signal object_requested(pos: Vector2, ob_type: Constants.ObjectType)
 
 signal score_update_requested(points: int)
 
+signal boss_killed
+
+func emit_boss_killed() -> void:
+	boss_killed.emit()
+
 
 # Wrapper function to emit the `on_create_bullet` signal.
 # Allows centralized control over bullet creation logic.

@@ -42,6 +42,7 @@ func reduce_lives() -> void:
 	if lives <= 0:
 		SignalHub.emit_score_update_requested(points)
 		SignalHub.emit_object_requested(global_position, Constants.ObjectType.EXPLOSION)
+		SignalHub.emit_boss_killed()
 		queue_free()
 
 
