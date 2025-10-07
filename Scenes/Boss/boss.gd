@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var lives: int = 2
+@export var points: int = 5
+
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var hit_box: Area2D = $Visuals/HitBox
@@ -28,14 +31,27 @@ func activate_collisions() -> void:
 func tween_hit() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(visuals, "position", Vector2.ZERO, 1.8)
-	
+
+
+func set_invincible(state: bool) -> void:
+	_invincible = state
+
+
+func reduce_lives() -> void:
+	lives -= 1
+	if lives <= 0:
+		SignalHub.emit_score_update_requested(points)
+		SignalHub.emit_object_requested(global_position, Constants.ObjectType.EXPLOSION)
+		queue_free()
+
 
 func take_damage() -> void:
 	if _invincible == true:
 		return
-	_invincible = true
+	set_invincible(true)
 	state_machine.travel("hit")
 	tween_hit()
+	reduce_lives()
 
 func _on_trigger_area_entered(_area: Area2D) -> void:
 	animation_tree["parameters/conditions/on_trigger"] = true
@@ -48,3 +64,4 @@ func boss_shoot() -> void:
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	take_damage()
+	
