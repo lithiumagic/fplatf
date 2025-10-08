@@ -19,4 +19,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	SignalHub.emit_on_level_complete(true)
 	print("level complete")

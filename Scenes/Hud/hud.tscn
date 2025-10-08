@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1u1nc5u8awha"]
+[gd_scene load_steps=5 format=3 uid="uid://d1u1nc5u8awha"]
 
 [ext_resource type="Script" uid="uid://cpcbxgnhvmbgx" path="res://Scenes/Hud/hud.gd" id="1_r346g"]
 [ext_resource type="LabelSettings" uid="uid://w7jppf8yakfb" path="res://Resources/ScoreDisplay_48.tres" id="1_t7ji5"]
 [ext_resource type="Texture2D" uid="uid://blmtdufrd7ky3" path="res://assets/items/pixel heart 2.png" id="2_88iar"]
+[ext_resource type="LabelSettings" uid="uid://cshhlo4l0ae1d" path="res://Resources/HudDisplay_96.tres" id="4_m635s"]
 
 [node name="Hud" type="Control"]
 process_mode = 3
@@ -59,3 +60,81 @@ stretch_mode = 4
 layout_mode = 2
 texture = ExtResource("2_88iar")
 stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.003, 0.03695, 0.1, 0.847059)
+
+[node name="VBGameOver" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="ColorRect/VBGameOver"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = ExtResource("4_m635s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBGameOver"]
+layout_mode = 2
+text = "Press Shoot"
+label_settings = ExtResource("1_t7ji5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBComplete" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelCompleteLabel" type="Label" parent="ColorRect/VBComplete"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete"
+label_settings = ExtResource("4_m635s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBComplete"]
+layout_mode = 2
+text = "Press Shoot"
+label_settings = ExtResource("1_t7ji5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompleteTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="CompleteTimer" to="." method="_on_complete_timer_timeout"]

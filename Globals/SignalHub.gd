@@ -28,10 +28,14 @@ signal object_requested(pos: Vector2, ob_type: Constants.ObjectType)
 signal score_update_requested(points: int)
 signal boss_killed
 signal player_hit(lives: int, shake: bool)
+signal on_level_complete(complete: bool)
 
 
 func emit_boss_killed() -> void:
 	boss_killed.emit()
+
+func emit_on_level_complete(complete: bool) -> void:
+	on_level_complete.emit(complete)
 
 
 # Wrapper function to emit the `on_create_bullet` signal.
