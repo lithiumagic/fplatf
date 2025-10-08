@@ -25,11 +25,10 @@ signal bullet_spawn_requested(
 #   - pos (Vector2): Where the explosion should be spawned
 #   - ob_type (Constants.ObjectType): Enum value for the explosion
 signal object_requested(pos: Vector2, ob_type: Constants.ObjectType)
-
-
 signal score_update_requested(points: int)
-
 signal boss_killed
+signal player_hit(lives: int, shake: bool)
+
 
 func emit_boss_killed() -> void:
 	boss_killed.emit()
@@ -50,3 +49,7 @@ func emit_object_requested(pos: Vector2, ob_type: Constants.ObjectType) -> void:
 
 func emit_score_update_requested(points: int) -> void:
 	score_update_requested.emit(points)
+
+
+func emit_player_hit(lives, shake) -> void:
+	player_hit.emit(lives, shake)

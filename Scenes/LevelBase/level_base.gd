@@ -8,3 +8,7 @@ var PlayerBullet = preload("res://Scenes/Bullets/player_bullet.tscn") # or load(
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot_enemy"):
 		pass
+
+
+func _ready() -> void:
+	get_tree().paused = false
