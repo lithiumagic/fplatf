@@ -11,16 +11,13 @@ extends Node2D
 		$AnimationTree["parameters/playback"]
 @onready var visuals: Node2D = $Visuals
 
-var _player_ref: Player
+
 var _invincible: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_player_ref = get_tree().get_first_node_in_group(Constants.PLAYER_GROUP)
-	if _player_ref == null:
-		print('no player ref found')
-		queue_free()
-
+	pass
 
 
 func activate_collisions() -> void:
@@ -59,8 +56,7 @@ func _on_trigger_area_entered(_area: Area2D) -> void:
 
 
 func boss_shoot() -> void:
-	var shoot_dir: Vector2 = shooter.global_position.direction_to(_player_ref.global_position)
-	shooter.shoot(shoot_dir)
+	shooter.shoot_at_player()
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:

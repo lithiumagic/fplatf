@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PlatFoxer"
-run/main_scene="uid://bvp8oeoe5ttf7"
+run/main_scene="uid://bngnfw53fnjmv"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://dkaqonu05hpfm"
 

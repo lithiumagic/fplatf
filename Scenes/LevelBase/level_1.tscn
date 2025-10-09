@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=4 uid="uid://dbiiwkig2hpn0"]
+
+[ext_resource type="PackedScene" uid="uid://bvp8oeoe5ttf7" path="res://Scenes/LevelBase/level_base.tscn" id="1_b0l7w"]
+[ext_resource type="PackedScene" uid="uid://biw25c0q48k6e" path="res://Scenes/Enemies/Frog/frog.tscn" id="2_kj8im"]
+[ext_resource type="PackedScene" uid="uid://du8caubalvmou" path="res://Scenes/Enemies/Snail/snail.tscn" id="3_p8um6"]
+
+[node name="Level1" instance=ExtResource("1_b0l7w")]
+
+[node name="Platforms" parent="." index="1"]
+tile_map_data = PackedByteArray("AAABAP//AAAHAAAAAAACAP//AAAHAAAAAAADAP//AAAHAAAAAAAEAP//AAAHAAAAAAAFAP//AAAHAAAAAAANAP//AAAGAAAAAAATAP//AAAGAAAAAAAUAP//AAAGAAAAAAAVAP//AAAGAAAAAAAWAP//AAAGAAAAAAAXAP//AAAGAAAAAAAYAP//AAAGAAAAAAAZAP//AAAHAAAAAAAGAP//AAAGAAAAAAAHAP//AAAGAAAAAAAIAP//AAAGAAAAAAAJAP//AAAGAAAAAAAKAP//AAAGAAAAAAAOAP//AAAGAAAAAAARAP//AAAGAAAAAAASAP//AAAGAAAAAAAiAP//AAAHAAAAAAAjAP//AAAHAAAAAAAkAP//AAAHAAAAAAAlAP//AAAHAAAAAAAmAP//AAAHAAAAAAAnAP//AAAHAAAAAAAoAP//AAAHAAAAAAApAP//AAAHAAAAAAAqAP//AAAHAAAAAAAcAP//AAAHAAAAAAAbAP//AAAHAAAAAAAaAP//AAAHAAAAAAAfAP//AAAGAAAAAAAgAP//AAAGAAAAAAAdAP//AAAGAAAAAAAeAP//AAAGAAAAAAAtAP//AAAIAAAAAAAuAP//AAAIAAAAAAAvAP//AAAIAAAAAAAwAP//AAAIAAAAAAAyAP//AAAIAAAAAAAxAP//AAAIAAAAAAA=")
+
+[node name="Player" parent="." index="2"]
+camera_min = Vector2(-10, 0)
+camera_max = Vector2(700, -400)
+
+[node name="Boss" parent="." index="9"]
+position = Vector2(626, -108)
+
+[node name="Checkpoint" parent="." index="10"]
+position = Vector2(736, -136)
+
+[node name="Frog" parent="Enemies" index="0" instance=ExtResource("2_kj8im")]
+position = Vector2(350, -123)
+
+[node name="Snail" parent="Enemies" index="1" instance=ExtResource("3_p8um6")]
+position = Vector2(195, -122)

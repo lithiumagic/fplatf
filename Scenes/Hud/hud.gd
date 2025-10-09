@@ -21,8 +21,14 @@ var _can_continue: bool = false
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("quit"):
 		GameManager.load_main()
+	if event.is_action_pressed("next"):
+		GameManager.load_next_level()
+			
 	if _can_continue and event.is_action_pressed("shoot"):
-		GameManager.load_main()
+		if vb_game_over.visible:
+			GameManager.load_main()
+		else:
+			GameManager.load_next_level()
 
 
 # Called when the node enters the scene tree for the first time.
